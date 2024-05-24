@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crack-info-2024": {
+      "hosting": {
+        "crack-info-2024": [
+          "crack-info-2024"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crack-info-2024"
+  }
+}

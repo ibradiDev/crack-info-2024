@@ -1,133 +1,231 @@
-<div class="shadow-2xl rounded-2xl p-3">
-  <h1 class="text-4xl text-center uppercase mb-10">{{ "crack info 2024" }}</h1>
+<div class="md:w-1/2 sm:w-3/4 mx-auto shadow-2xl rounded-2xl p-3">
+  <div class="w-full flex justify-between">
+    <div class="w-1/4">
+      <img src="../../assets/images/logo_esatic.png" alt="logo_esatic" />
+    </div>
+    <div>
+      <a
+        type="button"
+        routerLink="enregistrements"
+        class="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium p-1 sm:px-6 disabled:bg-opacity-70 bg-red-600 hover:bg-red-700 text-neutral-50"
+      >
+        Liste des enregistrements
+      </a>
+    </div>
+  </div>
+  <h1 class="text-4xl text-center uppercase my-8">
+    {{ "crack info 2024" }}
+  </h1>
 
-  <form>
+  <form #crackDataForm (ngSubmit)="onSubmit()">
     <div class="space-y-4">
-      <section>
-        <div class="flex space-x-6">
-          <div class="space-y-3 w-2/3">
+      <section class="md:flex justify-center md:space-x-6">
+        <div class="space-y-3 md:w-2/3">
+          <div class="">
+            <label
+              for="nom"
+              class="cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
+            >
+              Nom & Prénom <span class="text-red-600">*</span>
+            </label>
             <div class="">
-              <label
-                for="nom"
-                class="nc-Label cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
-              >
-                Nom & Prénom <span class="text-red-600">*</span>
-              </label>
-              <div class="mt-1">
-                <input
-                  id="nom"
-                  name="nom"
-                  type="text"
-                  class="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal h-11 px-4 py-3"
-                  placeholder="(ex): John Doe"
-                  required
-                />
-              </div>
+              <input
+                [(ngModel)]="crackData.nom"
+                id="nom"
+                type="text"
+                name="nom"
+                class="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal h-10 px-4 py-3"
+                placeholder="(ex): John Doe"
+                required
+              />
             </div>
+          </div>
 
+          <div class="">
+            <label
+              for="email"
+              class="nc-Label cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
+            >
+              Email <span class="text-red-600">*</span>
+            </label>
             <div class="">
-              <label
-                for="email"
-                class="nc-Label cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
-              >
-                Email <span class="text-red-600">*</span>
-              </label>
-              <div class="mt-1">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  class="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal h-11 px-4 py-3"
-                  placeholder="(ex): john.doe@exemple.com"
-                  required
-                />
-              </div>
+              <input
+                id="email"
+                [(ngModel)]="crackData.email"
+                name="email"
+                type="email"
+                class="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal h-10 px-4 py-3"
+                placeholder="(ex): john.doe@exemple.com"
+                required
+              />
             </div>
+          </div>
 
+          <div class="">
+            <label
+              for="date_naissance"
+              class="nc-Label cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
+            >
+              Date de naissance <span class="text-red-600">*</span>
+            </label>
             <div class="">
-              <label
-                for="date_naissance"
-                class="nc-Label cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
-              >
-                Date de naissance <span class="text-red-600">*</span>
-              </label>
-              <div class="mt-1">
-                <input
-                  id="date_naissance"
-                  required
-                  name="date_naissance"
-                  type="date"
-                  class="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal h-11 px-4 py-3"
-                />
-              </div>
+              <input
+                id="date_naissance"
+                required
+                name="date_naissance"
+                [(ngModel)]="crackData.dateNaissance"
+                type="date"
+                class="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal h-10 px-4 py-3"
+              />
             </div>
-
+          </div>
+          <div class="">
+            <label
+              for="nationalite"
+              class="nc-Label cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
+            >
+              Nationalité <span class="text-red-600">*</span>
+            </label>
             <div class="">
-              <label
-                for="date_naissance"
-                class="nc-Label cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
-              >
-                Sexe <span class="text-red-600">*</span>
-              </label>
-              <div class="flex space-x-10 justify-center">
-                <div class="flex space-x-2" for="male">
-                  <label class="mt-3 cursor-pointer" for="male">M</label>
-                  <div class="">
-                    <input
-                      id="male"
-                      name="sexe"
-                      type="radio"
-                      class="cursor-pointer border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl h-11 px-4 py-3"
-                      required
-                    />
-                  </div>
+              <app-select-country [(selectedCountry)]="crackData.nationalite">
+              </app-select-country>
+            </div>
+          </div>
+          <div class="">
+            <label
+              for="phone"
+              class="cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
+            >
+              Téléphone <span class="text-red-600">*</span>
+            </label>
+            <div class="">
+              <input
+                id="phone"
+                [(ngModel)]="crackData.telephone"
+                required
+                name="telephone"
+                type="tel"
+                maxlength="10"
+                class="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal h-10 px-4 py-3"
+              />
+            </div>
+          </div>
+
+          <div class="flex justify-between me-2">
+            <label
+              for="sexe"
+              class="nc-Label cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
+            >
+              Sexe <span class="text-red-600">*</span>
+            </label>
+            <div class="flex space-x-10 justify-center">
+              <div class="flex space-x-2">
+                <label class="mt-3 cursor-pointer" for="male">Masculin</label>
+                <div class="">
+                  <input
+                    id="male"
+                    name="masculin"
+                    [(ngModel)]="crackData.sexe"
+                    value="masculin"
+                    type="radio"
+                    class="cursor-pointer border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl h-11 px-4 py-3"
+                  />
                 </div>
-                <div class="flex space-x-2">
-                  <label class="mt-3 cursor-pointer" for="female">F</label>
-                  <div class="">
-                    <input
-                      id="female"
-                      name="sexe"
-                      type="radio"
-                      class="cursor-pointer border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl h-11 px-4 py-4"
-                      required
-                    />
-                  </div>
+              </div>
+              <div class="flex space-x-2">
+                <label class="mt-3 cursor-pointer" for="female">Féminin</label>
+                <div class="">
+                  <input
+                    id="female"
+                    name="feminin"
+                    [(ngModel)]="crackData.sexe"
+                    value="feminin"
+                    type="radio"
+                    class="cursor-pointer border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl h-11 px-4 py-4"
+                  />
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="space-y-10 w-1/3">
-            <div class="h-2/3 flex justify-center">
+        <div
+          class="md:w-1/3 sm:w-full h-auto flex justify-around md:flex-col space-y-8"
+        >
+          <div class="w-1/3 lg:w-full lg:h-1/2 md:mt-8 h-28 space-y-1">
+            <div class="h-5/6 lg:h-full">
               <input
                 #photo
                 (change)="addPhoto(photo.files![0])"
                 type="file"
                 name="photo"
                 class="hidden"
+                accept="image/*"
               />
               <img
                 [src]="photoURL"
                 alt="photo"
-                title="cliquer pour ajouter une photo"
-                class="w-full h-full rounded-b-full rounded-t-full cursor-pointer"
-                (click)="photo.click()"
+                class="border border-blue-700 w-fit h-full rounded-full"
               />
             </div>
-            <div class="text-center h-14">
-              <label for="progress">Anglais</label>
+            <div class="w-full text-center">
+              @if (isDefault) {
+              <button
+                type="button"
+                title="cliquer pour ajouter une photo"
+                (click)="photo.click()"
+                class="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium p-1 sm:px-6 disabled:bg-opacity-70 bg-sky-600 hover:bg-sky-700 text-neutral-50"
+              >
+                choisir
+              </button>
+              } @else {
+              <button
+                type="button"
+                title="cliquer pour supprimer la photo"
+                (click)="removePhoto()"
+                class="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium p-1 sm:px-6 disabled:bg-opacity-70 bg-red-600 hover:bg-red-700 text-neutral-50"
+              >
+                supprimer</button
+              >}
+            </div>
+          </div>
+
+          <div class="text-center lg:h-1/5 h-full w-1/2 lg:w-full">
+            <div>
               <div class="">
-                <input type="range" name="progress" id="progress" />
+                <label for="">Anglais</label>
+                <input
+                  #range
+                  type="range"
+                  name="progress"
+                  [defaultValue]="0"
+                  [(ngModel)]="crackData.niveauAnglais"
+                  class="w-full"
+                  step="5"
+                  min="0"
+                  max="10"
+                />
+              </div>
+              <div class="flex justify-between text-sm md:text-lg">
+                <span class="cursor-pointer" (click)="range.value = '0'"
+                  >Faible</span
+                >
+                <span class="cursor-pointer" (click)="range.value = '5'"
+                  >Moyen</span
+                >
+                <span class="cursor-pointer" (click)="range.value = '10'"
+                  >Elevé</span
+                >
               </div>
             </div>
+            <!-- <span>{{ range.value }}%</span> -->
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flex space-x-5">
-          <div class="space-y-3 w-2/3">
+        <div class="md:flex md:space-x-5">
+          <div class="space-y-3 md:w-2/3">
             <div class="">
               <label
                 for="motivation"
@@ -135,31 +233,33 @@
               >
                 Motivation
               </label>
-              <div class="mt-1">
+              <div class="">
                 <textarea
                   name="motivation"
+                  [(ngModel)]="crackData.motivation"
                   id="motivation"
                   cols="30"
                   rows="8"
-                  class="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal px-4 py-3"
+                  class="block w-full resize-none border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal px-4 py-3"
                 ></textarea>
               </div>
             </div>
           </div>
 
-          <div class="space-y-1 w-1/3">
+          <div class="space-y-1 md:w-1/3">
             <div class="">
               <label
                 for="nom"
-                class="nc-Label cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
+                class="cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
               >
-                Niveau <span class="text-red-600">*</span>
+                Niveau d'étude <span class="text-red-600">*</span>
               </label>
               <div class="mt-1">
                 <select
                   name="niveau"
                   id="niveau"
-                  class="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal h-11 px-4 py-3"
+                  [(ngModel)]="crackData.niveauEtude"
+                  class="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl text-sm font-normal h-10 px-4 py-3"
                 >
                   <option value=""></option>
                   <option value="licence">Licence</option>
@@ -172,6 +272,14 @@
             </div>
 
             <div class="-space-y-4 pr-3">
+              <div class="mt-4 mb-2">
+                <label
+                  for="specialite"
+                  class="cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
+                >
+                  Spécialités <span class="text-red-600">*</span>
+                </label>
+              </div>
               <div class="flex justify-end space-x-8">
                 <label class="mt-3 cursor-pointer" for="data_science"
                   >Data Science</label
@@ -181,6 +289,7 @@
                     id="data_science"
                     name="data_science"
                     type="checkbox"
+                    [(ngModel)]="crackData.specialite.dataScience"
                     class="cursor-pointer border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl h-11 px-4 py-4"
                     required
                   />
@@ -195,8 +304,9 @@
                     id="developpement"
                     name="developpement"
                     type="checkbox"
+                    [checked]="crackData.specialite.developpement"
+                    [(ngModel)]="crackData.specialite.developpement"
                     class="cursor-pointer border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl h-11 px-4 py-4"
-                    required
                   />
                 </div>
               </div>
@@ -207,8 +317,8 @@
                     id="rit"
                     name="rit"
                     type="checkbox"
+                    [(ngModel)]="crackData.specialite.rit"
                     class="cursor-pointer border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl h-11 px-4 py-4"
-                    required
                   />
                 </div>
               </div>
@@ -218,9 +328,9 @@
                   <input
                     id="ia"
                     name="ia"
+                    [(ngModel)]="crackData.specialite.ia"
                     type="checkbox"
                     class="cursor-pointer border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-300 dark:focus:ring-sky-600 dark:focus:ring-opacity-25 rounded-2xl h-11 px-4 py-4"
-                    required
                   />
                 </div>
               </div>
