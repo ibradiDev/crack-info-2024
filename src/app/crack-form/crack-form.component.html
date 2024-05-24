@@ -154,8 +154,10 @@
         >
           <div class="w-1/3 lg:w-full lg:h-1/2 md:mt-8 h-28 space-y-1">
             <div class="h-5/6 lg:h-full">
+              <label for="photo" class="hidden"> photo</label>
               <input
                 #photo
+                id="photo"
                 (change)="addPhoto(photo.files![0])"
                 type="file"
                 name="photo"
@@ -193,9 +195,10 @@
           <div class="text-center lg:h-1/5 h-full w-1/2 lg:w-full">
             <div>
               <div class="">
-                <label for="">Anglais</label>
+                <label for="range">Anglais</label>
                 <input
                   #range
+                  id="range"
                   type="range"
                   name="progress"
                   [defaultValue]="0"
@@ -249,7 +252,7 @@
           <div class="space-y-1 md:w-1/3">
             <div class="">
               <label
-                for="nom"
+                for="niveau"
                 class="cursor-pointer text-sm font-medium text-neutral-700 dark:text-neutral-800"
               >
                 Niveau d'étude <span class="text-red-600">*</span>
@@ -348,7 +351,7 @@
         </button>
         <button
           type="reset"
-          class="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium px-4 py-3 sm:px-6 border bg-white border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+          class="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium px-4 py-3 sm:px-6 border bg-white border-red-600  text-red-600 dark:bg-neutral-900 dark:text-neutral-300 dark:border-neutral-700 hover:bg-red-600 hover:text-neutral-100 dark:hover:bg-neutral-800"
         >
           Annuler
         </button>
